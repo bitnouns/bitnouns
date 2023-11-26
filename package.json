@@ -10,7 +10,8 @@
     "pages:build": "pnpm dlx @cloudflare/next-on-pages@1",
     "pages:deploy": "pnpm run pages:build && wrangler pages deploy .vercel/output/static",
     "pages:watch": "pnpm @cloudflare/next-on-pages@1 --watch",
-    "pages:dev": "pnpm wrangler pages dev .vercel/output/static --compatibility-flag=nodejs_compat"
+    "pages:dev": "pnpm wrangler pages dev .vercel/output/static --compatibility-flag=nodejs_compat",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@buildersdk/sdk": "0.1.0",
