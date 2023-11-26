@@ -1,5 +1,5 @@
 import { getBalanceOf } from '@/data/nouns-builder/token'
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextRequest } from 'next/server'
 
 export const config = {
   runtime: 'edge',
@@ -9,19 +9,22 @@ export const config = {
   ],
 }
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { address, user } = req.query
+const handler = async (req: NextRequest) => {
+  const { searchParams } = new URL(req.url)
+  const address = searchParams.get('address')
+  const user = searchParams.get('user')
   const balance = await getBalanceOf({
     address: address as '0x${string}',
     user: user as '0x${string}',
   })
 
   const ONE_DAY_IN_SECONDS = 60 * 60 * 24
-  res.setHeader(
-    'Cache-Control',
-    `s-maxage=60, stale-while-revalidate=${ONE_DAY_IN_SECONDS}`,
-  )
-  res.send(balance.toNumber())
+  return new Response(balance.toString(), {
+    status: 200,
+    headers: {
+      'Cache-Control': `s-maxage=60, stale-while-revalidate=${ONE_DAY_IN_SECONDS}`,
+    },
+  })
 }
 
 export default handler

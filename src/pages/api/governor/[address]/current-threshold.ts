@@ -1,5 +1,5 @@
 import { getProposalThreshold } from '@/data/nouns-builder/governor'
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextRequest } from 'next/server'
 
 export const config = {
   runtime: 'edge',
@@ -9,13 +9,16 @@ export const config = {
   ],
 }
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { address } = req.query
+const handler = async (req: NextRequest) => {
+  const { searchParams } = new URL(req.url)
+  const address = searchParams.get('address')
   const data = await getProposalThreshold({
     address: address as string,
   })
 
-  res.status(200).send(data.toNumber())
+  return new Response(data.toString(), {
+    status: 200,
+  })
 }
 
 export default handler

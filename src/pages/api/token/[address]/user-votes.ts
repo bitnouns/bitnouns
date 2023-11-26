@@ -1,5 +1,5 @@
 import { getUserVotes } from '@/data/nouns-builder/token'
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextRequest } from 'next/server'
 
 export const config = {
   runtime: 'edge',
@@ -9,8 +9,11 @@ export const config = {
   ],
 }
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { address, user, timestamp } = req.query
+const handler = async (req: NextRequest) => {
+  const { searchParams } = new URL(req.url)
+  const address = searchParams.get('address')
+  const user = searchParams.get('user')
+  const timestamp = searchParams.get('timestamp')
 
   const data = await getUserVotes({
     address: address as `0x${string}`,
@@ -18,7 +21,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     timestamp: timestamp ? (timestamp as string) : undefined,
   })
 
-  res.status(200).send(data.toNumber())
+  return new Response(data.toString(), {
+    status: 200,
+  })
 }
 
 export default handler

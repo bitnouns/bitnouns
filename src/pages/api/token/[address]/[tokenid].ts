@@ -1,5 +1,5 @@
-import { TokenInfo, getTokenInfo } from '@/data/nouns-builder/token'
-import { NextApiRequest, NextApiResponse } from 'next'
+import { getTokenInfo } from '@/data/nouns-builder/token'
+import type { NextRequest } from 'next/server'
 
 export const config = {
   runtime: 'edge',
@@ -9,24 +9,23 @@ export const config = {
   ],
 }
 
-type ResponseData = TokenInfo
+const handler = async (req: NextRequest) => {
+  const { searchParams } = new URL(req.url)
+  const address = searchParams.get('address')
+  const tokenid = searchParams.get('tokenid')
 
-const handler = async (
-  req: NextApiRequest,
-  res: NextApiResponse<ResponseData>,
-) => {
-  const { address, tokenid } = req.query
   const tokenInfo = await getTokenInfo({
     address: address as string,
     tokenid: tokenid as string,
   })
 
   const ONE_DAY_IN_SECONDS = 60 * 60 * 24
-  res.setHeader(
-    'Cache-Control',
-    `s-maxage=60, stale-while-revalidate=${ONE_DAY_IN_SECONDS}`,
-  )
-  res.send(tokenInfo)
+  return new Response(JSON.stringify(tokenInfo), {
+    status: 200,
+    headers: {
+      'Cache-Control': `s-maxage=60, stale-while-revalidate=${ONE_DAY_IN_SECONDS}`,
+    },
+  })
 }
 
 export default handler

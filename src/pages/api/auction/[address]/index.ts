@@ -1,5 +1,5 @@
 import { getCurrentAuction } from '@/data/nouns-builder/auction'
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextRequest } from 'next/server'
 
 export const config = {
   runtime: 'edge',
@@ -9,16 +9,18 @@ export const config = {
   ],
 }
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { address } = req.query
+const handler = async (req: NextRequest) => {
+  const { searchParams } = new URL(req.url)
+  const address = searchParams.get('address')
   const auctionInfo = await getCurrentAuction({ address: address as string })
 
   const ONE_DAY_IN_SECONDS = 60 * 60 * 24
-  res.setHeader(
-    'Cache-Control',
-    `s-maxage=60, stale-while-revalidate=${ONE_DAY_IN_SECONDS}`,
-  )
-  res.send(auctionInfo)
+  return new Response(JSON.stringify(auctionInfo), {
+    status: 200,
+    headers: {
+      'Cache-Control': `s-maxage=60, stale-while-revalidate=${ONE_DAY_IN_SECONDS}`,
+    },
+  })
 }
 
 export default handler
