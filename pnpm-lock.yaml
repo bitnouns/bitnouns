@@ -64,7 +64,7 @@ dependencies:
     version: 6.1.0(graphql@16.6.0)
   jotai:
     specifier: 2.6.0
-    version: 2.6.0(@types/react@18.2.37)(react@18.2.0)
+    version: 2.6.0(@types/react@18.2.38)(react@18.2.0)
   lodash.merge:
     specifier: 4.6.2
     version: 4.6.2
@@ -72,8 +72,8 @@ dependencies:
     specifier: 14.0.3
     version: 14.0.3(react-dom@18.2.0)(react@18.2.0)
   next-mdx-remote:
-    specifier: 4.2.0
-    version: 4.2.0(react-dom@18.2.0)(react@18.2.0)
+    specifier: 4.4.1
+    version: 4.4.1(react-dom@18.2.0)(react@18.2.0)
   postcss:
     specifier: 8.4.31
     version: 8.4.31
@@ -5916,7 +5916,7 @@ packages:
     resolution: {integrity: sha512-5eEbBDQT/jF1xg6l36P+mWGGoH9Spuy0PCdSr2dtWRDGC6ph/w9ZCL4lmESW8f8F7MwT3XKescfP0wnZWAKL9w==}
     hasBin: true
 
-  /jotai@2.6.0(@types/react@18.2.37)(react@18.2.0):
+  /jotai@2.6.0(@types/react@18.2.38)(react@18.2.0):
     resolution: {integrity: sha512-Vt6hsc04Km4j03l+Ax+Sc+FVft5cRJhqgxt6GTz6GM2eM3DyX3CdBdzcG0z2FrlZToL1/0OAkqDghIyARWnSuQ==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
@@ -5928,7 +5928,7 @@ packages:
       react:
         optional: true
     dependencies:
-      '@types/react': 18.2.37
+      '@types/react': 18.2.38
       react: 18.2.0
     dev: false
 
@@ -6995,8 +6995,8 @@ packages:
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  /next-mdx-remote@4.2.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-X5RhD7f7b78pH2abbuusObSGgII5l54OdusS/2iXljN7WN1cel6ToLlZeCZcyxx9cR4wmBGQYGongIttDYNmAA==}
+  /next-mdx-remote@4.4.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-1BvyXaIou6xy3XoNF4yaMZUCb6vD2GTAa5ciOa6WoO+gAUTYsb1K4rI/HSC2ogAWLrb/7VSV52skz07vOzmqIQ==}
     engines: {node: '>=14', npm: '>=7'}
     peerDependencies:
       react: '>=16.x <=18.x'
