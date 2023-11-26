@@ -1,79 +1,79 @@
-import Layout from "@/components/Layout";
-import dynamic from "next/dynamic";
-import {
-  Formik,
-  Field,
-  Form,
-  useField,
-  FieldArray,
-  useFormikContext,
-} from "formik";
+import AuthWrapper from '@/components/AuthWrapper'
+import Layout from '@/components/Layout'
+import { useDAOAddresses } from '@/hooks/fetch'
+import { useCurrentThreshold } from '@/hooks/fetch/useCurrentThreshold'
+import { useUserVotes } from '@/hooks/fetch/useUserVotes'
+import { useDebounce } from '@/hooks/useDebounce'
+import { useIsMounted } from '@/hooks/useIsMounted'
+import { GovernorABI } from '@buildersdk/sdk'
 import {
   ArrowLeftIcon,
   CheckCircleIcon,
   XMarkIcon,
-} from "@heroicons/react/20/solid";
+} from '@heroicons/react/20/solid'
+import { TOKEN_CONTRACT } from 'constants/addresses'
+import { parseEther } from 'ethers/lib/utils.js'
+import {
+  Field,
+  FieldArray,
+  Form,
+  Formik,
+  useField,
+  useFormikContext,
+} from 'formik'
+import dynamic from 'next/dynamic'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Fragment } from 'react'
 import {
   useContractWrite,
   usePrepareContractWrite,
   useWaitForTransaction,
-} from "wagmi";
-import { useDAOAddresses } from "@/hooks/fetch";
-import { GovernorABI } from "@buildersdk/sdk";
-import { parseEther } from "ethers/lib/utils.js";
-import Link from "next/link";
-import Image from "next/image";
-import AuthWrapper from "@/components/AuthWrapper";
-import { useDebounce } from "@/hooks/useDebounce";
-import { useIsMounted } from "@/hooks/useIsMounted";
-import { Fragment } from "react";
-import { TOKEN_CONTRACT } from "constants/addresses";
-import { useUserVotes } from "@/hooks/fetch/useUserVotes";
-import { useCurrentThreshold } from "@/hooks/fetch/useCurrentThreshold";
+} from 'wagmi'
 interface Transaction {
-  address: string;
-  valueInETH: number;
+  address: string
+  valueInETH: number
 }
 interface Values {
-  title: string;
-  summary: string;
-  transactions: Transaction[];
+  title: string
+  summary: string
+  transactions: Transaction[]
 }
 
 export default function Create() {
   return (
     <Layout>
       <div className="flex flex-col items-center">
-        <div className="max-w-[650px] w-full">
+        <div className="w-full max-w-[650px]">
           <div className="flex items-center">
             <Link
               href="/vote"
-              className="flex items-center border border-skin-stroke hover:bg-skin-muted rounded-full p-2 mr-4"
+              className="mr-4 flex items-center rounded-full border border-skin-stroke p-2 hover:bg-skin-muted"
             >
               <ArrowLeftIcon className="h-4" />
             </Link>
 
-            <div className="text-2xl sm:text-4xl font-bold relative font-heading text-skin-base">
+            <div className="relative font-heading text-2xl font-bold text-skin-base sm:text-4xl">
               Create your proposal
             </div>
           </div>
 
           <Formik
-            initialValues={{ title: "", transactions: [], summary: "" }}
+            initialValues={{ title: '', transactions: [], summary: '' }}
             onSubmit={() => {}}
             render={({ values }) => (
-              <Form className="mt-6 flex flex-col w-full">
-                <label className="relative text-md font-heading text-skin-base">
+              <Form className="mt-6 flex w-full flex-col">
+                <label className="text-md relative font-heading text-skin-base">
                   Proposal title
                 </label>
 
                 <Field
                   name="title"
                   placeholder="My New Proposal"
-                  className="bg-skin-muted text-skin-base placeholder:text-skin-muted px-3 py-3 rounded-lg w-full text-md mt-2 focus:outline-none"
+                  className="text-md mt-2 w-full rounded-lg bg-skin-muted p-3 text-skin-base placeholder:text-skin-muted focus:outline-none"
                 />
 
-                <label className="relative text-md font-heading text-skin-base mt-6">
+                <label className="text-md relative mt-6 font-heading text-skin-base">
                   Transactions
                 </label>
 
@@ -84,10 +84,10 @@ export default function Create() {
                       {values.transactions.map((_, index) => (
                         <div
                           key={index}
-                          className="mb-4 border p-4 rounded-md flex flex-col"
+                          className="mb-4 flex flex-col rounded-md border p-4"
                         >
                           <div className="flex items-center justify-between">
-                            <label className="text-sm w-52">Recipent</label>
+                            <label className="w-52 text-sm">Recipent</label>
                             <button onClick={() => arrayHelpers.remove(index)}>
                               <XMarkIcon className="h-6" />
                             </button>
@@ -95,18 +95,18 @@ export default function Create() {
                           <Field
                             name={`transactions[${index}].address`}
                             placeholder="0x04bfb0034F24E..."
-                            className="bg-skin-muted text-skin-base placeholder:text-skin-muted px-3 py-3 rounded-lg w-full text-md mt-2 focus:outline-none"
+                            className="text-md mt-2 w-full rounded-lg bg-skin-muted p-3 text-skin-base placeholder:text-skin-muted focus:outline-none"
                           />
 
-                          <label className="text-sm mt-4">Value</label>
-                          <div className="flex items-center mt-2">
+                          <label className="mt-4 text-sm">Value</label>
+                          <div className="mt-2 flex items-center">
                             <Field
                               name={`transactions.${index}.valueInETH`}
                               placeholder="0.1"
                               type="number"
-                              className="bg-skin-muted text-skin-base placeholder:text-skin-muted px-3 py-3 rounded-l-lg w-full text-md focus:outline-none"
+                              className="text-md w-full rounded-l-lg bg-skin-muted p-3 text-skin-base placeholder:text-skin-muted focus:outline-none"
                             />
-                            <label className="bg-skin-muted h-12 flex items-center border-l px-4">
+                            <label className="flex h-12 items-center border-l bg-skin-muted px-4">
                               ETH
                             </label>
                           </div>
@@ -115,9 +115,9 @@ export default function Create() {
 
                       <button
                         onClick={() =>
-                          arrayHelpers.push({ address: "", valueInETH: 0 })
+                          arrayHelpers.push({ address: '', valueInETH: 0 })
                         }
-                        className={`bg-skin-muted text-skin-muted rounded-lg text-md w-full h-12 flex items-center justify-around`}
+                        className={`text-md flex h-12 w-full items-center justify-around rounded-lg bg-skin-muted text-skin-muted`}
                       >
                         Add Transaction
                       </button>
@@ -132,7 +132,7 @@ export default function Create() {
                   )}
                 />
 
-                <label className="relative text-md font-heading text-skin-base mt-6">
+                <label className="text-md relative mt-6 font-heading text-skin-base">
                   Summary
                 </label>
 
@@ -145,54 +145,54 @@ export default function Create() {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
 
 const SubmitButton = () => {
-  const { values: formValues } = useFormikContext<Values>();
-  const { transactions, title, summary } = formValues || {};
+  const { values: formValues } = useFormikContext<Values>()
+  const { transactions, title, summary } = formValues || {}
   const { data: addresses } = useDAOAddresses({
     tokenContract: TOKEN_CONTRACT,
-  });
+  })
 
-  const { data: userVotes } = useUserVotes();
+  const { data: userVotes } = useUserVotes()
   const { data: currentThreshold } = useCurrentThreshold({
     governorContract: addresses?.governor,
-  });
+  })
 
-  const targets = transactions?.map((t) => t.address as `0x${string}`) || [];
+  const targets = transactions?.map((t) => t.address as `0x${string}`) || []
 
   const values =
-    transactions?.map((t) => parseEther(t.valueInETH.toString() || "0")) || [];
-  const callDatas = transactions?.map(() => "0x" as `0x${string}`) || [];
-  const description = `${title}&&${summary}`;
+    transactions?.map((t) => parseEther(t.valueInETH.toString() || '0')) || []
+  const callDatas = transactions?.map(() => '0x' as `0x${string}`) || []
+  const description = `${title}&&${summary}`
 
-  const args = [targets, values, callDatas, description] as const;
-  const debouncedArgs = useDebounce(args);
+  const args = [targets, values, callDatas, description] as const
+  const debouncedArgs = useDebounce(args)
 
   const { config } = usePrepareContractWrite({
     address: addresses?.governor,
     abi: GovernorABI,
-    functionName: "propose",
+    functionName: 'propose',
     args: debouncedArgs,
     enabled: debouncedArgs && !values.find((x) => x.isZero()),
-  });
-  const { data, write } = useContractWrite(config);
+  })
+  const { data, write } = useContractWrite(config)
   const { isLoading, isSuccess, status } = useWaitForTransaction({
     hash: data?.hash,
-  });
+  })
 
-  const isMounted = useIsMounted();
+  const isMounted = useIsMounted()
 
-  if (!isMounted) return <Fragment />;
+  if (!isMounted) return <Fragment />
 
-  const hasBalance = userVotes && userVotes >= (currentThreshold || 0);
+  const hasBalance = userVotes && userVotes >= (currentThreshold || 0)
 
   const buttonClass = `${
     write
-      ? "bg-skin-button-accent hover:bg-skin-button-accent-hover"
-      : "bg-skin-button-muted"
-  } text-skin-inverted rounded-lg text-md w-full h-12 mt-4 flex items-center justify-around`;
+      ? 'bg-skin-button-accent hover:bg-skin-button-accent-hover'
+      : 'bg-skin-button-muted'
+  } text-skin-inverted rounded-lg text-md w-full h-12 mt-4 flex items-center justify-around`
 
   return (
     <AuthWrapper className={buttonClass}>
@@ -212,37 +212,37 @@ const SubmitButton = () => {
         ) : isLoading ? (
           <Image src="/spinner.svg" alt="spinner" width={25} height={25} />
         ) : (
-          "Submit Proposal"
+          'Submit Proposal'
         )}
       </button>
     </AuthWrapper>
-  );
-};
+  )
+}
 
-const RichTextEditor = dynamic(() => import("@mantine/rte"), {
+const RichTextEditor = dynamic(() => import('@mantine/rte'), {
   ssr: false,
   loading: () => (
-    <div className="mt-2 min-h-[250px] bg-gray-100 rounded-md animate-pulse" />
+    <div className="mt-2 min-h-[250px] animate-pulse rounded-md bg-gray-100" />
   ),
-});
+})
 
 const HTMLTextEditor = () => {
-  const props = { name: "summary", type: "text", id: "summary" };
-  const [_, meta, helpers] = useField(props.name);
+  const props = { name: 'summary', type: 'text', id: 'summary' }
+  const [_, meta, helpers] = useField(props.name)
 
-  const { value } = meta;
-  const { setValue } = helpers;
+  const { value } = meta
+  const { setValue } = helpers
 
   return (
     <RichTextEditor
       controls={[
-        ["bold", "italic", "underline", "link"],
-        ["unorderedList", "h1", "h2", "h3"],
+        ['bold', 'italic', 'underline', 'link'],
+        ['unorderedList', 'h1', 'h2', 'h3'],
       ]}
       className="mt-2 min-h-[250px]"
       value={value}
       onChange={(value) => setValue(value)}
       {...props}
     />
-  );
-};
+  )
+}

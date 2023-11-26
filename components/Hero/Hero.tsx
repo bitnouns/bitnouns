@@ -1,60 +1,60 @@
-import { BigNumber, ethers, utils } from "ethers";
-import Image from "next/image";
-import { CountdownDisplay } from "../CountdownDisplay";
-import { useCurrentAuctionInfo, useContractInfo, useTokenInfo } from "hooks";
-import { compareAddress } from "@/utils/compareAddress";
-import { SettleAuction } from "./SettleAuction";
-import { PlaceBid } from "./PlaceBid";
-import { HighestBidder } from "./HighestBidder";
-import { Fragment, useState } from "react";
-import { useTheme } from "@/hooks/useTheme";
-import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/20/solid";
-import { AuctionInfo } from "@/services/nouns-builder/auction";
-import { ContractInfo } from "@/services/nouns-builder/token";
-import { usePreviousAuctions } from "@/hooks/fetch/usePreviousAuctions";
-import { useEnsName } from "wagmi";
-import { shortenAddress } from "@/utils/shortenAddress";
-import UserAvatar from "../UserAvatar";
-import { useRouter } from "next/router";
+import { usePreviousAuctions } from '@/hooks/fetch/usePreviousAuctions'
+import { useTheme } from '@/hooks/useTheme'
+import { AuctionInfo } from '@/services/nouns-builder/auction'
+import { ContractInfo } from '@/services/nouns-builder/token'
+import { compareAddress } from '@/utils/compareAddress'
+import { shortenAddress } from '@/utils/shortenAddress'
+import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/20/solid'
+import { BigNumber, ethers, utils } from 'ethers'
+import { useContractInfo, useCurrentAuctionInfo, useTokenInfo } from 'hooks'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { Fragment, useState } from 'react'
+import { useEnsName } from 'wagmi'
+import { CountdownDisplay } from '../CountdownDisplay'
+import UserAvatar from '../UserAvatar'
+import { HighestBidder } from './HighestBidder'
+import { PlaceBid } from './PlaceBid'
+import { SettleAuction } from './SettleAuction'
 
 export default function Hero() {
-  const { data: contractInfo } = useContractInfo();
+  const { data: contractInfo } = useContractInfo()
   const { data: auctionInfo } = useCurrentAuctionInfo({
     auctionContract: contractInfo?.auction,
-  });
-  const { query, push } = useRouter();
+  })
+  const { query, push } = useRouter()
 
-  const currentTokenId = auctionInfo ? auctionInfo?.tokenId : "";
+  const currentTokenId = auctionInfo ? auctionInfo?.tokenId : ''
 
   const tokenId = query.tokenid
     ? BigNumber.from(query.tokenid as string).toHexString()
-    : currentTokenId;
+    : currentTokenId
 
-  const { data: tokenInfo } = useTokenInfo({ tokenId });
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const { data: tokenInfo } = useTokenInfo({ tokenId })
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   const pageBack = () => {
-    const bnTokenId = BigNumber.from(tokenId);
-    if (bnTokenId.eq(0)) return;
-    setImageLoaded(false);
+    const bnTokenId = BigNumber.from(tokenId)
+    if (bnTokenId.eq(0)) return
+    setImageLoaded(false)
     push(`/token/${bnTokenId.sub(1).toNumber()}`, undefined, {
       shallow: true,
-    });
-  };
+    })
+  }
 
   const pageForward = () => {
-    const bnTokenId = BigNumber.from(tokenId);
-    if (bnTokenId.eq(currentTokenId)) return;
+    const bnTokenId = BigNumber.from(tokenId)
+    if (bnTokenId.eq(currentTokenId)) return
     push(`/token/${bnTokenId.add(1).toNumber()}`, undefined, {
       shallow: true,
-    });
-  };
+    })
+  }
 
   return (
-    <div className="flex flex-col relative z-20 bg-skin-fill lg:flex-row items-top lg:h-[80vh] lg:max-h-[600px] lg:pt-10">
-      <div className="lg:w-1/2 mx-4 flex flex-col min-h-[350px] min-h-auto lg:min-h-auto justify-baseline items-end lg:pr-12 relative">
+    <div className="items-top relative z-20 flex flex-col bg-skin-fill lg:h-[80vh] lg:max-h-[600px] lg:flex-row lg:pt-10">
+      <div className="min-h-auto lg:min-h-auto justify-baseline relative mx-4 flex min-h-[350px] flex-col items-end lg:w-1/2 lg:pr-12">
         {tokenInfo && (
-          <div className="w-full h-auto flex items-center justify-around">
+          <div className="flex h-auto w-full items-center justify-around">
             <Image
               src={tokenInfo.image}
               unoptimized
@@ -62,33 +62,33 @@ export default function Hero() {
               height={450}
               width={450}
               alt="logo"
-              className={`rounded-md relative z-20 w-100 h-100 lg:h-[65vh] lg:max-h-[500px] ${
-                imageLoaded ? "visible" : "invisible"
+              className={`w-100 h-100 relative z-20 rounded-md lg:h-[65vh] lg:max-h-[500px] ${
+                imageLoaded ? 'visible' : 'invisible'
               }`}
             />
           </div>
         )}
         <div
-          className={`absolute top-0 right-0 w-[450px] h-[450px] hidden lg:flex items-center justify-around lg:pr-12 ${
-            imageLoaded ? "invisible" : "visible"
+          className={`absolute right-0 top-0 hidden h-[450px] w-[450px] items-center justify-around lg:flex lg:pr-12 ${
+            imageLoaded ? 'invisible' : 'visible'
           }`}
         >
-          <Image src={"/spinner.svg"} alt="spinner" width={30} height={30} />
+          <Image src={'/spinner.svg'} alt="spinner" width={30} height={30} />
         </div>
       </div>
-      <div className="px-4 w-screen lg:w-auto min-h-64 lg:h-full flex flex-col justify-stretch items-stretch mt-6 lg:mt-0">
-        <div className="flex items-center mb-4">
+      <div className="min-h-64 mt-6 flex w-screen flex-col items-stretch justify-stretch px-4 lg:mt-0 lg:h-full lg:w-auto">
+        <div className="mb-4 flex items-center">
           <button
             onClick={pageBack}
             className={`flex items-center ${
-              tokenId === "0x00"
-                ? "border border-skin-stroke"
-                : "bg-skin-backdrop"
-            } rounded-full p-2 mr-4`}
+              tokenId === '0x00'
+                ? 'border border-skin-stroke'
+                : 'bg-skin-backdrop'
+            } mr-4 rounded-full p-2`}
           >
             <ArrowLeftIcon
               className={`h-4 ${
-                tokenId === "0x00" ? "text-skin-muted" : "text-skin-base"
+                tokenId === '0x00' ? 'text-skin-muted' : 'text-skin-base'
               }`}
             />
           </button>
@@ -96,22 +96,22 @@ export default function Hero() {
             onClick={pageForward}
             className={`flex items-center ${
               tokenId === currentTokenId
-                ? "border border-skin-stroke"
-                : "bg-skin-backdrop"
-            } rounded-full p-2 mr-4`}
+                ? 'border border-skin-stroke'
+                : 'bg-skin-backdrop'
+            } mr-4 rounded-full p-2`}
           >
             <ArrowRightIcon
               className={`h-4 ${
                 tokenId === currentTokenId
-                  ? "text-skin-muted"
-                  : "text-skin-base"
+                  ? 'text-skin-muted'
+                  : 'text-skin-base'
               }`}
             />
           </button>
         </div>
 
-        <div className="text-4xl sm:text-6xl font-heading text-skin-base font-semibold">
-          {tokenInfo?.name || "---"}
+        <div className="font-heading text-4xl font-semibold text-skin-base sm:text-6xl">
+          {tokenInfo?.name || '---'}
         </div>
 
         {tokenId === currentTokenId ? (
@@ -129,7 +129,7 @@ export default function Hero() {
         )}
       </div>
     </div>
-  );
+  )
 }
 
 const EndedAuction = ({
@@ -137,82 +137,82 @@ const EndedAuction = ({
   tokenId,
   owner,
 }: {
-  auctionContract?: string;
-  tokenId?: string;
-  owner?: `0x${string}`;
+  auctionContract?: string
+  tokenId?: string
+  owner?: `0x${string}`
 }) => {
-  const { data } = usePreviousAuctions({ auctionContract });
+  const { data } = usePreviousAuctions({ auctionContract })
   const auctionData = data?.find((auction) =>
-    compareAddress(auction.tokenId, tokenId || "")
-  );
+    compareAddress(auction.tokenId, tokenId || ''),
+  )
 
   const { data: ensName } = useEnsName({
     address: owner,
-  });
+  })
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 mt-10 lg:w-96 pb-8 lg:pb-0">
-      <div className="lg:border-r mr-8 lg:mr-0 border-skin-stroke">
-        <div className="text-lg text-skin-muted">{"Winning Bid"}</div>
+    <div className="mt-10 grid grid-cols-1 gap-6 pb-8 lg:w-96 lg:grid-cols-2 lg:gap-12 lg:pb-0">
+      <div className="mr-8 border-skin-stroke lg:mr-0 lg:border-r">
+        <div className="text-lg text-skin-muted">{'Winning Bid'}</div>
         {auctionData ? (
-          <div className="text-2xl font-semibold sm:text-3xl text-skin-base mt-2">
-            Ξ {utils.formatEther(auctionData.amount || "0")}
+          <div className="mt-2 text-2xl font-semibold text-skin-base sm:text-3xl">
+            Ξ {utils.formatEther(auctionData.amount || '0')}
           </div>
         ) : (
-          <div className="text-2xl font-semibold sm:text-3xl text-skin-base mt-2">
+          <div className="mt-2 text-2xl font-semibold text-skin-base sm:text-3xl">
             n/a
           </div>
         )}
       </div>
       <div className="lg:w-64">
-        <div className="text-lg text-skin-muted">{"Held by"}</div>
+        <div className="text-lg text-skin-muted">{'Held by'}</div>
 
-        <div className="flex items-center mt-2">
+        <div className="mt-2 flex items-center">
           <UserAvatar
             diameter={32}
-            className="w-8 h-8 rounded-full mr-2"
+            className="mr-2 h-8 w-8 rounded-full"
             address={owner || ethers.constants.AddressZero}
           />
-          <div className="text-xl font-semibold sm:text-3xl text-skin-base">
+          <div className="text-xl font-semibold text-skin-base sm:text-3xl">
             {ensName || shortenAddress(owner || ethers.constants.AddressZero)}
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const CurrentAuction = ({
   auctionInfo,
   contractInfo,
   tokenId,
 }: {
-  auctionInfo?: AuctionInfo;
-  contractInfo?: ContractInfo;
-  tokenId: string;
+  auctionInfo?: AuctionInfo
+  contractInfo?: ContractInfo
+  tokenId: string
 }) => {
-  const [theme] = useTheme();
+  const [theme] = useTheme()
 
   return (
     <Fragment>
-      <div className="grid grid-cols-2 gap-12 mt-10 lg:w-96">
+      <div className="mt-10 grid grid-cols-2 gap-12 lg:w-96">
         <div className="border-r border-skin-stroke">
           <div className="text-lg text-skin-muted">
-            {theme.strings.currentBid || "Current Bid"}
+            {theme.strings.currentBid || 'Current Bid'}
           </div>
           {auctionInfo && (
-            <div className="text-2xl font-semibold sm:text-3xl text-skin-base mt-2">
-              Ξ {utils.formatEther(auctionInfo.highestBid || "0")}
+            <div className="mt-2 text-2xl font-semibold text-skin-base sm:text-3xl">
+              Ξ {utils.formatEther(auctionInfo.highestBid || '0')}
             </div>
           )}
         </div>
         <div className="lg:w-64">
           <div className="text-lg text-skin-muted">
-            {theme.strings.auctionEndsIn || "Auction ends in"}
+            {theme.strings.auctionEndsIn || 'Auction ends in'}
           </div>
           {auctionInfo && (
-            <div className="text-2xl font-semibold sm:text-3xl text-skin-base mt-2">
-              <CountdownDisplay to={auctionInfo.endTime || "0"} />
+            <div className="mt-2 text-2xl font-semibold text-skin-base sm:text-3xl">
+              <CountdownDisplay to={auctionInfo.endTime || '0'} />
             </div>
           )}
         </div>
@@ -222,7 +222,7 @@ const CurrentAuction = ({
         <SettleAuction auction={contractInfo?.auction} />
       ) : (
         <PlaceBid
-          highestBid={auctionInfo?.highestBid || "0"}
+          highestBid={auctionInfo?.highestBid || '0'}
           auction={contractInfo?.auction}
           tokenId={tokenId}
         />
@@ -231,8 +231,8 @@ const CurrentAuction = ({
       {auctionInfo?.highestBidder &&
         !compareAddress(
           auctionInfo?.highestBidder,
-          ethers.constants.AddressZero
+          ethers.constants.AddressZero,
         ) && <HighestBidder address={auctionInfo?.highestBidder} />}
     </Fragment>
-  );
-};
+  )
+}

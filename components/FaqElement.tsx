@@ -1,25 +1,25 @@
-import { Disclosure, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { Disclosure, Transition } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 export default function FaqElement({
   children,
   title,
   className,
 }: {
-  children: React.ReactNode;
-  title: string;
-  className: string;
+  children: React.ReactNode
+  title: string
+  className: string
 }) {
   return (
     <Disclosure>
       {({ open }) => (
         <>
           <Disclosure.Button className={`${className}`}>
-            <div className={open ? "text-skin-highlighted" : ""}>{title}</div>
+            <div className={open ? 'text-skin-highlighted' : ''}>{title}</div>
             <ChevronDownIcon
               className={`${
-                open ? "rotate-180 transform" : ""
-              } h-8 transition ease-in-out text-skin-base`}
+                open ? 'rotate-180' : ''
+              } h-8 text-skin-base transition ease-in-out`}
             />
           </Disclosure.Button>
 
@@ -36,5 +36,5 @@ export default function FaqElement({
         </>
       )}
     </Disclosure>
-  );
+  )
 }

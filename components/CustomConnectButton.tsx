@@ -1,12 +1,12 @@
-import { useTheme } from "@/hooks/useTheme";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useTheme } from '@/hooks/useTheme'
+import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 export type CustomConnectButtonProps = {
-  className: string;
-};
+  className: string
+}
 
 const CustomConnectButton = ({ className }: CustomConnectButtonProps) => {
-  const [theme] = useTheme();
+  const [theme] = useTheme()
 
   return (
     <ConnectButton.Custom>
@@ -21,11 +21,11 @@ const CustomConnectButton = ({ className }: CustomConnectButtonProps) => {
         return (
           <div
             {...(!mounted && {
-              "aria-hidden": true,
+              'aria-hidden': true,
               style: {
                 opacity: 0,
-                pointerEvents: "none",
-                userSelect: "none",
+                pointerEvents: 'none',
+                userSelect: 'none',
               },
             })}
           >
@@ -37,9 +37,9 @@ const CustomConnectButton = ({ className }: CustomConnectButtonProps) => {
                     onClick={openConnectModal}
                     type="button"
                   >
-                    {theme.strings.connectWallet || "Connect Wallet"}
+                    {theme.strings.connectWallet || 'Connect Wallet'}
                   </button>
-                );
+                )
               }
 
               if (chain.unsupported) {
@@ -49,9 +49,9 @@ const CustomConnectButton = ({ className }: CustomConnectButtonProps) => {
                     onClick={openChainModal}
                     type="button"
                   >
-                    {theme.strings.wrongNetwork || "Wrong network"}
+                    {theme.strings.wrongNetwork || 'Wrong network'}
                   </button>
-                );
+                )
               }
               return (
                 <button
@@ -61,13 +61,13 @@ const CustomConnectButton = ({ className }: CustomConnectButtonProps) => {
                 >
                   {account.displayName}
                 </button>
-              );
+              )
             })()}
           </div>
-        );
+        )
       }}
     </ConnectButton.Custom>
-  );
-};
+  )
+}
 
-export default CustomConnectButton;
+export default CustomConnectButton

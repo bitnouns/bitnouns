@@ -1,8 +1,8 @@
-import { useTheme } from "@/hooks/useTheme";
-import NavigationItemComponent from "./NavigationItem";
+import { useTheme } from '@/hooks/useTheme'
+import NavigationItemComponent from './NavigationItem'
 
 export default function Footer() {
-  const [theme] = useTheme();
+  const [theme] = useTheme()
 
   return (
     <div className="flex justify-around py-16">
@@ -11,10 +11,10 @@ export default function Footer() {
           <NavigationItemComponent
             key={i}
             item={item}
-            className="mr-0 sm:mr-4 rounded-xl px-4 sm:px-6 text-sm sm:text-md h-10 flex items-center justify-around text-skin-muted hover:text-skin-base"
+            className="sm:text-md mr-0 flex h-10 items-center justify-around rounded-xl px-4 text-sm text-skin-muted hover:text-skin-base sm:mr-4 sm:px-6"
           />
         ))}
       </div>
     </div>
-  );
+  )
 }
