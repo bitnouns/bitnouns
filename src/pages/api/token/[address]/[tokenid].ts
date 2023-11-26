@@ -9,7 +9,7 @@ export const config = {
   ],
 }
 
-const handler = async (req: NextRequest) => {
+export default async function handler(req: NextRequest) {
   console.log(req.url)
   const { searchParams } = new URL(req.url)
   const address = searchParams.get('address') as `0x${string}`
@@ -25,5 +25,3 @@ const handler = async (req: NextRequest) => {
     },
   })
 }
-
-export default handler

@@ -6,9 +6,7 @@ export const config = {
   unstable_allowDynamic: ['**/.pnpm/**/node_modules/lodash*/*.js'],
 }
 
-const handler = async (req: NextRequest) => {
+export default async function handler(req: NextRequest) {
   console.log(req.url)
   return Response.json(theme)
 }
-
-export default handler
