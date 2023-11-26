@@ -30,7 +30,9 @@ export const getStaticProps = async (): Promise<
     templateDirectory + '/vote/description.md',
     'utf8',
   )
-  const descMD = await serialize(descFile)
+  const descMD = await serialize(descFile, {
+    mdxOptions: { development: false },
+  })
 
   return {
     props: {

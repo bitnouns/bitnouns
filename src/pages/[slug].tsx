@@ -36,7 +36,10 @@ export const getStaticProps = async (
   const { slug } = ctx.params!
   const templateDirectory = path.join(process.cwd(), 'templates')
   const source = await fs.readFile(`${templateDirectory}/${slug}.md`, 'utf8')
-  const mdxSource = await serialize(source, { parseFrontmatter: true })
+  const mdxSource = await serialize(source, {
+    mdxOptions: { development: false },
+    parseFrontmatter: true,
+  })
 
   return {
     props: {
