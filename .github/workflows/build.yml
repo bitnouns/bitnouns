@@ -10,7 +10,7 @@ on:
       - feature/*
       - release/*
     paths-ignore: # Ignoring the markdown file changes.
-      - "**/*.md"
+      - '**/*.md'
   pull_request: # Also on pull request events.
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab.
 
@@ -90,7 +90,7 @@ jobs:
 
       # This compiles the application in optimized production mode and output it to the build folder.
       - name: Build the application and export it
-        run: pnpm run build
+        run: pnpm run pages:build
 
       # Runs unit tests for the application using Jest.
       - name: Execute tests using Jest
