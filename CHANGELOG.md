@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.1] - 2023-11-26
+
+### Refactor
+
+- Remove duplicate prose counters in tailwind config
+
+### Miscellaneous Tasks
+
+- Disable `no-custom-classname` rule in `.eslintrc.json`
+- Remove `reactStrictMode` in next config
+
 ## [1.0.0-alpha.0] - 2023-11-26
 
 ### Refactor
