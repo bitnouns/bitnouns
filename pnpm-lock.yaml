@@ -39,8 +39,8 @@ dependencies:
     specifier: 18.2.17
     version: 18.2.17
   '@zoralabs/zdk':
-    specifier: 2.2.0
-    version: 2.2.0
+    specifier: 2.4.0
+    version: 2.4.0
   autoprefixer:
     specifier: 10.4.16
     version: 10.4.16(postcss@8.4.31)
@@ -64,7 +64,7 @@ dependencies:
     version: 6.1.0(graphql@16.6.0)
   jotai:
     specifier: 2.6.0
-    version: 2.6.0(@types/react@18.2.37)(react@18.2.0)
+    version: 2.6.0(@types/react@18.2.38)(react@18.2.0)
   lodash.merge:
     specifier: 4.6.2
     version: 4.6.2
@@ -2450,8 +2450,8 @@ packages:
       '@walletconnect/window-getters': 1.0.0
     dev: false
 
-  /@zoralabs/zdk@2.2.0:
-    resolution: {integrity: sha512-rhQXOu0flDgEGboZX1p7/+7CGZaU3WYNz/ZDT0e0UMlNEZyjx/WBY+u5ioji/qIAg0wcV/TNhOnEI+bhgRaeVA==}
+  /@zoralabs/zdk@2.4.0:
+    resolution: {integrity: sha512-ufSIrIxLd1bvipsUSOZ02s/uyFlnIOpyEK+HrhpBVLaLTg3SRDLfVkm4PB2bUti26yOg3epY2WpQryMk9tGvCw==}
     dependencies:
       big.js: 6.2.1
       graphql: 16.6.0
@@ -5919,7 +5919,7 @@ packages:
     resolution: {integrity: sha512-5eEbBDQT/jF1xg6l36P+mWGGoH9Spuy0PCdSr2dtWRDGC6ph/w9ZCL4lmESW8f8F7MwT3XKescfP0wnZWAKL9w==}
     hasBin: true
 
-  /jotai@2.6.0(@types/react@18.2.37)(react@18.2.0):
+  /jotai@2.6.0(@types/react@18.2.38)(react@18.2.0):
     resolution: {integrity: sha512-Vt6hsc04Km4j03l+Ax+Sc+FVft5cRJhqgxt6GTz6GM2eM3DyX3CdBdzcG0z2FrlZToL1/0OAkqDghIyARWnSuQ==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
@@ -5931,7 +5931,7 @@ packages:
       react:
         optional: true
     dependencies:
-      '@types/react': 18.2.37
+      '@types/react': 18.2.38
       react: 18.2.0
     dev: false
 
