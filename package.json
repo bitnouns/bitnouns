@@ -50,7 +50,7 @@
     "tailwindcss": "3.3.5",
     "typescript": "5.2.2",
     "unstated-next": "1.1.0",
-    "wagmi": "0.8.6"
+    "wagmi": "0.8.10"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "1.7.4",
