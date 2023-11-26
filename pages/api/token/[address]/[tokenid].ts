@@ -1,8 +1,14 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { getTokenInfo } from "data/nouns-builder/token";
+import {NextApiRequest, NextApiResponse} from "next";
+import {getTokenInfo, TokenInfo} from "data/nouns-builder/token";
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { address, tokenid } = req.query;
+export const config = {
+  runtime: 'edge',
+}
+
+type ResponseData = TokenInfo
+
+const handler = async (req: NextApiRequest, res: NextApiResponse<ResponseData>) => {
+  const {address, tokenid} = req.query;
   const tokenInfo = await getTokenInfo({
     address: address as string,
     tokenid: tokenid as string,

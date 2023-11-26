@@ -1,6 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getContractInfo } from "data/nouns-builder/token";
 
+export const config = {
+  runtime: 'edge',
+}
+
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { address } = req.query;
   const contractInfo = await getContractInfo({ address: address as string });

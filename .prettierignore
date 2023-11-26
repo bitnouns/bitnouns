@@ -1,9 +1,8 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
+pnpm-lock.yaml
 
 # testing
 /coverage
@@ -14,6 +13,7 @@
 
 # production
 /build
+/out
 
 # misc
 .DS_Store
@@ -35,8 +35,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# cloudflare
-.wrangler
+# next-sitemap
+**/robots.txt
+**/sitemap*.xml
 
-# turbo
-.turbo
+# lingui
+**/locales/
+
+# markdown
+CHANGELOG.md
