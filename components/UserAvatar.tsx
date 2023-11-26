@@ -37,5 +37,13 @@ export default function UserAvatar({
       />
     )
 
-  return <img alt="avatar" src={ensAvatar} className={className} />
+  return (
+    <Image
+      alt="avatar"
+      src={ensAvatar}
+      className={className}
+      height={20}
+      width={20}
+    />
+  )
 }
