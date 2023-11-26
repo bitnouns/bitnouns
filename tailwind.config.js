@@ -73,7 +73,6 @@ module.exports = {
             "--tw-prose-links": theme("colors.skin.muted"),
             "--tw-prose-bold": theme("colors.skin.base"),
             "--tw-prose-counters": theme("colors.skin.muted"),
-            "--tw-prose-counters": theme("colors.skin.muted"),
             "--tw-prose-bullets": theme("colors.skin.muted"),
             "--tw-prose-hr": theme("colors.skin.muted"),
             "--tw-prose-quotes": theme("colors.skin.muted"),

@@ -5,5 +5,8 @@
     "plugin:tailwindcss/recommended",
     "prettier"
   ],
-  "plugins": ["eslint-plugin-next-on-pages"]
+  "plugins": ["eslint-plugin-next-on-pages"],
+  "rules": {
+    "tailwindcss/no-custom-classname": "off"
+  }
 }
