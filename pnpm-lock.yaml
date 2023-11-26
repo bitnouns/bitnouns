@@ -12,8 +12,8 @@ dependencies:
     specifier: 11.10.5
     version: 11.10.5(@types/react@18.2.37)(react@18.2.0)
   '@headlessui/react':
-    specifier: 1.7.4
-    version: 1.7.4(react-dom@18.2.0)(react@18.2.0)
+    specifier: 1.7.17
+    version: 1.7.17(react-dom@18.2.0)(react@18.2.0)
   '@heroicons/react':
     specifier: 2.0.18
     version: 2.0.18(react@18.2.0)
@@ -1112,8 +1112,8 @@ packages:
       graphql: 16.6.0
     dev: false
 
-  /@headlessui/react@1.7.4(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-D8n5yGCF3WIkPsjEYeM8knn9jQ70bigGGb5aUvN6y4BGxcT3OcOQOKcM3zRGllRCZCFxCZyQvYJF6ZE7bQUOyQ==}
+  /@headlessui/react@1.7.17(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-4am+tzvkqDSSgiwrsEpGWqgGo9dz8qU5M3znCkC4PgkpY4HcCZzEDEvozltGGGHIKl9jbXbZPSH5TWn4sWJdow==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^16 || ^17 || ^18
