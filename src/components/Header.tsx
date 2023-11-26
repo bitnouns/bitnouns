@@ -1,3 +1,4 @@
+import { NavigationItem } from '@/types/ThemeConfig/NavigationItem'
 import { formatTreasuryBalance } from '@/utils/formatTreasuryBalance'
 import { Bars3Icon } from '@heroicons/react/20/solid'
 import { TOKEN_CONTRACT } from 'constants/addresses'
@@ -10,7 +11,7 @@ import {
 } from 'hooks'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Fragment, useState } from 'react'
+import { Fragment, Key, useState } from 'react'
 import CustomConnectButton from './CustomConnectButton'
 import MobileMenu from './MobileMenu'
 import NavigationItemsComponent from './NavigationItem'
@@ -65,13 +66,15 @@ export default function Header() {
         </div>
 
         <div className="hidden items-center sm:flex">
-          {theme.nav.primary.map((item, i) => (
-            <NavigationItemsComponent
-              key={i}
-              item={item}
-              className="mr-4 flex h-10 items-center justify-around rounded-xl border border-skin-stroke px-6 font-semibold text-skin-muted transition ease-in-out hover:scale-110 hover:bg-skin-backdrop"
-            />
-          ))}
+          {theme.nav.primary.map(
+            (item: NavigationItem, i: Key | null | undefined) => (
+              <NavigationItemsComponent
+                key={i}
+                item={item}
+                className="mr-4 flex h-10 items-center justify-around rounded-xl border border-skin-stroke px-6 font-semibold text-skin-muted transition ease-in-out hover:scale-110 hover:bg-skin-backdrop"
+              />
+            ),
+          )}
           <CustomConnectButton className="h-10 rounded-xl border border-skin-stroke bg-skin-backdrop px-6 text-skin-base transition ease-in-out hover:scale-110" />
         </div>
 
