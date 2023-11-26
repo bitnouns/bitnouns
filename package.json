@@ -1,6 +1,6 @@
 {
-  "name": "noun-site",
-  "version": "0.2.0",
+  "name": "bitnouns",
+  "version": "1.0.0-alpha.0",
   "private": true,
   "scripts": {
     "prepare": "husky install",
