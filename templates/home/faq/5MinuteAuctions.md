@@ -2,7 +2,8 @@
 title: 5 Minute Auction
 order: 2
 ---
-The bitNouns Auction Contract will act as a self-sufficient bitNoun generation and distribution mechanism, auctioning one bitNoun every 5 minutes, forever. 
+
+The bitNouns Auction Contract will act as a self-sufficient bitNoun generation and distribution mechanism, auctioning one bitNoun every 5 minutes, forever.
 
 100% of auction proceeds (ETH) are automatically deposited in the bitNouns DAO treasury, where they are governed by bitNoun owners.
 
