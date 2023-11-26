@@ -15,6 +15,11 @@ export default async function handler(req: NextRequest) {
   const address = searchParams.get('address') as `0x${string}`
   const tokenid = searchParams.get('tokenid') as string
 
+  // Check if address is null or undefined
+  if (!address) {
+    return new Response('Address not provided', { status: 400 })
+  }
+
   const tokenInfo = await getTokenInfo({ address, tokenid })
 
   const ONE_DAY_IN_SECONDS = 60 * 60 * 24

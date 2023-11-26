@@ -18,6 +18,11 @@ export default async function handler(req: NextRequest) {
     ? (searchParams.get('timestamp') as string)
     : undefined
 
+  // Check if address is null or undefined
+  if (!address) {
+    return new Response('Address not provided', { status: 400 })
+  }
+
   const data = await getUserVotes({ address, user, timestamp })
 
   return new Response(data.toString(), {

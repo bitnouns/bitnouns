@@ -16,6 +16,11 @@ export default async function handler(req: NextRequest) {
   const user = searchParams.get('user') as `0x${string}`
   const balance = await getBalanceOf({ address, user })
 
+  // Check if address is null or undefined
+  if (!address) {
+    return new Response('Address not provided', { status: 400 })
+  }
+
   const ONE_DAY_IN_SECONDS = 60 * 60 * 24
   return new Response(balance.toString(), {
     status: 200,
