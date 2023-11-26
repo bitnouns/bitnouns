@@ -63,8 +63,8 @@ dependencies:
     specifier: 2.2.9
     version: 2.2.9(react@18.2.0)
   graphql-request:
-    specifier: 5.0.0
-    version: 5.0.0(graphql@16.6.0)
+    specifier: 6.1.0
+    version: 6.1.0(graphql@16.6.0)
   jotai:
     specifier: 1.11.1
     version: 1.11.1(react@18.2.0)
@@ -5079,15 +5079,13 @@ packages:
       - encoding
     dev: false
 
-  /graphql-request@5.0.0(graphql@16.6.0):
-    resolution: {integrity: sha512-SpVEnIo2J5k2+Zf76cUkdvIRaq5FMZvGQYnA4lUWYbc99m+fHh4CZYRRO/Ff4tCLQ613fzCm3SiDT64ubW5Gyw==}
+  /graphql-request@6.1.0(graphql@16.6.0):
+    resolution: {integrity: sha512-p+XPfS4q7aIpKVcgmnZKhMNqhltk20hfXtkaIkTfjjmiKMJ5xrt5c743cL03y/K7y1rg3WrIC49xGiEQ4mxdNw==}
     peerDependencies:
       graphql: 14 - 16
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.6.0)
       cross-fetch: 3.1.6
-      extract-files: 9.0.0
-      form-data: 3.0.1
       graphql: 16.6.0
     transitivePeerDependencies:
       - encoding
