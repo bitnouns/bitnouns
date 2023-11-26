@@ -63,8 +63,8 @@ dependencies:
     specifier: 6.1.0
     version: 6.1.0(graphql@16.6.0)
   jotai:
-    specifier: 1.11.1
-    version: 1.11.1(react@18.2.0)
+    specifier: 2.6.0
+    version: 2.6.0(@types/react@18.2.37)(react@18.2.0)
   lodash.merge:
     specifier: 4.6.2
     version: 4.6.2
@@ -5919,43 +5919,19 @@ packages:
     resolution: {integrity: sha512-5eEbBDQT/jF1xg6l36P+mWGGoH9Spuy0PCdSr2dtWRDGC6ph/w9ZCL4lmESW8f8F7MwT3XKescfP0wnZWAKL9w==}
     hasBin: true
 
-  /jotai@1.11.1(react@18.2.0):
-    resolution: {integrity: sha512-pHpaZUdvIpcS12ryMCrwtvmT/IovZAbicfrlll/Rb9394rwhqKoDFsDs0kv4oWtBy/XHHNv7iSZnQFmntiQj+w==}
+  /jotai@2.6.0(@types/react@18.2.37)(react@18.2.0):
+    resolution: {integrity: sha512-Vt6hsc04Km4j03l+Ax+Sc+FVft5cRJhqgxt6GTz6GM2eM3DyX3CdBdzcG0z2FrlZToL1/0OAkqDghIyARWnSuQ==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
-      '@babel/core': '*'
-      '@babel/template': '*'
-      jotai-immer: '*'
-      jotai-optics: '*'
-      jotai-redux: '*'
-      jotai-tanstack-query: '*'
-      jotai-urql: '*'
-      jotai-valtio: '*'
-      jotai-xstate: '*'
-      jotai-zustand: '*'
-      react: '>=16.8'
+      '@types/react': '>=17.0.0'
+      react: '>=17.0.0'
     peerDependenciesMeta:
-      '@babel/core':
+      '@types/react':
         optional: true
-      '@babel/template':
-        optional: true
-      jotai-immer:
-        optional: true
-      jotai-optics:
-        optional: true
-      jotai-redux:
-        optional: true
-      jotai-tanstack-query:
-        optional: true
-      jotai-urql:
-        optional: true
-      jotai-valtio:
-        optional: true
-      jotai-xstate:
-        optional: true
-      jotai-zustand:
+      react:
         optional: true
     dependencies:
+      '@types/react': 18.2.37
       react: 18.2.0
     dev: false
 
