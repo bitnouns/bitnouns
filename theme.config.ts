@@ -1,6 +1,6 @@
+import { lightTheme } from '@/theme/default'
+import { ThemeConfig } from '@/types/ThemeConfig'
 import merge from 'lodash.merge'
-import { lightTheme } from 'theme/default'
-import { ThemeConfig } from 'types/ThemeConfig'
 
 export const theme: ThemeConfig = merge(lightTheme, {
   styles: {
