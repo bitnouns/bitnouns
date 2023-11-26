@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.2] - 2023-11-26
+
+### Refactor
+
+- Update CSS class order for improved readability and maintainability
+- Add `useEffect` dependency in `CountdownDisplay`
+- Change overlay style format in `ModalWrapper`
+- Add dimension attributes in `UserAvatar` component
+- Update string quotations and removed semicolons
+- Update paths and file types in Tailwind configuration
+- Correct paths for TypeScript compilation
+- Update import statements in `theme.config.ts`
+- Move all files to `src` directory for better structure
+- Update `Footer` component for type safety
+- Improve type safety in `Header` component
+- Improve type safety in `MobileMenu` component
+- Update import paths for better structure
+
 ## [1.0.0-alpha.1] - 2023-11-26
 
 ### Refactor
