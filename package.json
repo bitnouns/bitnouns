@@ -57,6 +57,11 @@
     "@cloudflare/next-on-pages": "1.7.4",
     "eslint-plugin-next-on-pages": "1.7.4",
     "vercel": "32.5.5",
-    "wrangler": "3.16.0"
+    "wrangler": "3.16.0",
+    "prettier": "3.1.0",
+    "prettier-plugin-jsdoc": "1.1.1",
+    "prettier-plugin-organize-attributes": "1.0.0",
+    "prettier-plugin-organize-imports": "3.2.4",
+    "prettier-plugin-tailwindcss": "0.5.7"
   }
 }
