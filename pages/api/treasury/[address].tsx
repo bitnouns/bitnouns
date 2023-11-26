@@ -1,6 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import DefaultProvider from "utils/DefaultProvider";
 
+export const config = {
+  runtime: 'edge',
+}
+
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { address } = req.query;
   const treasuryBalance = await DefaultProvider.getBalance(address as string);

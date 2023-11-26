@@ -1,6 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getTokenInfo } from "data/nouns-builder/token";
 
+export const config = {
+  runtime: 'edge',
+}
+
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { address, tokenid } = req.query;
   const tokenInfo = await getTokenInfo({

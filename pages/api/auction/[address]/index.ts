@@ -1,6 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getCurrentAuction } from "data/nouns-builder/auction";
 
+export const config = {
+  runtime: 'edge',
+}
+
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { address } = req.query;
   const auctionInfo = await getCurrentAuction({ address: address as string });
