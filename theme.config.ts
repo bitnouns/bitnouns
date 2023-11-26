@@ -1,18 +1,18 @@
-import { ThemeConfig } from "types/ThemeConfig";
-import { lightTheme } from "theme/default";
-import merge from "lodash.merge";
+import merge from 'lodash.merge'
+import { lightTheme } from 'theme/default'
+import { ThemeConfig } from 'types/ThemeConfig'
 
 export const theme: ThemeConfig = merge(lightTheme, {
   styles: {
     fonts: {
-      heading: "Roboto",
+      heading: 'Roboto',
     },
   },
   nav: {
     primary: [
-      { label: "DAO", href: "/vote" },
-      { label: "About", href: "/about" },
+      { label: 'DAO', href: '/vote' },
+      { label: 'About', href: '/about' },
     ],
     secondary: [],
   },
-} as Partial<ThemeConfig>);
+} as Partial<ThemeConfig>)
