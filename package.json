@@ -33,7 +33,7 @@
     "eslint": "8.53.0",
     "eslint-config-next": "14.0.3",
     "ethers": "5.7.2",
-    "formik": "2.2.9",
+    "formik": "2.4.5",
     "graphql-request": "6.1.0",
     "jotai": "1.11.1",
     "lodash.merge": "4.6.2",
