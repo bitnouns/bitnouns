@@ -14,6 +14,12 @@ on:
   pull_request: # Also on pull request events.
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab.
 
+env:
+  NEXT_PUBLIC_ALCHEMY_KEY: ${{ secrets.NEXT_PUBLIC_ALCHEMY_KEY }}
+  NEXT_PUBLIC_TOKEN_CONTRACT: ${{ secrets.NEXT_PUBLIC_TOKEN_CONTRACT }}
+  NEXT_PUBLIC_IPFS_GATEWAY: ${{ secrets.NEXT_PUBLIC_IPFS_GATEWAY }}
+  NEXT_PUBLIC_TOKEN_NETWORK: ${{ secrets.NEXT_PUBLIC_TOKEN_NETWORK }}
+
 jobs:
   check:
     name: State Verifier
