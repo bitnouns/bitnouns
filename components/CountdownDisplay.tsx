@@ -103,7 +103,7 @@ export const CountdownDisplay: React.FC<CountdownDisplayProps> = (
     return () => {
       clearInterval(checkTimeout)
     }
-  }, [])
+  }, [updateTimeLeft])
 
   if (!timeLeft) {
     return <Fragment />
