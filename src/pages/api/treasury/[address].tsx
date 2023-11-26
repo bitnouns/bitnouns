@@ -1,5 +1,5 @@
+import DefaultProvider from '@/utils/DefaultProvider'
 import { NextApiRequest, NextApiResponse } from 'next'
-import DefaultProvider from 'utils/DefaultProvider'
 
 export const config = {
   runtime: 'edge',

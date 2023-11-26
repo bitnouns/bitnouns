@@ -1,5 +1,5 @@
+import { NavigationItem } from '@/types/ThemeConfig/NavigationItem'
 import Link from 'next/link'
-import { NavigationItem } from 'types/ThemeConfig/NavigationItem'
 
 export default function NavigationItemComponent({
   item,

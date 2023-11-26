@@ -1,4 +1,4 @@
-import { getContractInfo } from 'data/nouns-builder/token'
+import { getContractInfo } from '@/data/nouns-builder/token'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export const config = {

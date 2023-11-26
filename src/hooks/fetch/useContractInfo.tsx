@@ -1,5 +1,5 @@
-import { TOKEN_CONTRACT } from 'constants/addresses'
-import { ContractInfo } from 'data/nouns-builder/token'
+import { TOKEN_CONTRACT } from '@/constants/addresses'
+import { ContractInfo } from '@/data/nouns-builder/token'
 import useSWR from 'swr'
 
 export const useContractInfo = () => {

@@ -1,14 +1,14 @@
-import { NavigationItem } from '@/types/ThemeConfig/NavigationItem'
-import { formatTreasuryBalance } from '@/utils/formatTreasuryBalance'
-import { Bars3Icon } from '@heroicons/react/20/solid'
-import { TOKEN_CONTRACT } from 'constants/addresses'
-import { ETHERSCAN_BASEURL } from 'constants/urls'
+import { TOKEN_CONTRACT } from '@/constants/addresses'
+import { ETHERSCAN_BASEURL } from '@/constants/urls'
 import {
   useContractInfo,
   useDAOAddresses,
   useTheme,
   useTreasuryBalance,
-} from 'hooks'
+} from '@/hooks'
+import { NavigationItem } from '@/types/ThemeConfig/NavigationItem'
+import { formatTreasuryBalance } from '@/utils/formatTreasuryBalance'
+import { Bars3Icon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Fragment, Key, useState } from 'react'

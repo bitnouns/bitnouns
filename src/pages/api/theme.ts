@@ -1,5 +1,5 @@
+import { theme } from '@/../theme.config'
 import { NextApiRequest, NextApiResponse } from 'next'
-import { theme } from 'theme.config'
 
 export const config = {
   runtime: 'edge',

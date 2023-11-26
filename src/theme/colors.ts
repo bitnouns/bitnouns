@@ -1,6 +1,6 @@
+import { ThemeColors } from '@/types/ThemeConfig/ThemeColors'
 import tailwindConfig from 'tailwind.config.js'
 import resolveConfig from 'tailwindcss/resolveConfig'
-import { ThemeColors } from 'types/ThemeConfig/ThemeColors'
 
 const withRGB = (val: string): `${string}, ${string}, ${string}` => {
   val = val.replace('#', '')

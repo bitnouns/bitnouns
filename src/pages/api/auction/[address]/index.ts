@@ -1,4 +1,4 @@
-import { getCurrentAuction } from 'data/nouns-builder/auction'
+import { getCurrentAuction } from '@/data/nouns-builder/auction'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export const config = {

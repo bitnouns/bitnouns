@@ -1,5 +1,6 @@
 import AuthWrapper from '@/components/AuthWrapper'
 import Layout from '@/components/Layout'
+import { TOKEN_CONTRACT } from '@/constants/addresses'
 import { useDAOAddresses } from '@/hooks/fetch'
 import { useCurrentThreshold } from '@/hooks/fetch/useCurrentThreshold'
 import { useUserVotes } from '@/hooks/fetch/useUserVotes'
@@ -11,7 +12,6 @@ import {
   CheckCircleIcon,
   XMarkIcon,
 } from '@heroicons/react/20/solid'
-import { TOKEN_CONTRACT } from 'constants/addresses'
 import { parseEther } from 'ethers/lib/utils.js'
 import {
   Field,

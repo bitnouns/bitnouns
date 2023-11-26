@@ -1,8 +1,8 @@
+import { IPFS_GATEWAY } from '@/constants/urls'
 import DefaultProvider from '@/utils/DefaultProvider'
 import getNormalizedURI from '@/utils/getNormalizedURI'
 import parseBase64String from '@/utils/parseBase64String'
 import { BuilderSDK } from '@buildersdk/sdk'
-import { IPFS_GATEWAY } from 'constants/urls'
 import { BigNumber, constants } from 'ethers'
 
 const { token } = BuilderSDK.connect({ signerOrProvider: DefaultProvider })

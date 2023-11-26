@@ -1,4 +1,4 @@
-import { ThemeConfig } from 'types/ThemeConfig'
+import { ThemeConfig } from '@/types/ThemeConfig'
 
 export const applyThemeProperties = (theme: ThemeConfig) => {
   if (!theme.styles.colors) return

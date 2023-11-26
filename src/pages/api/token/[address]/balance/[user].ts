@@ -1,4 +1,4 @@
-import { getBalanceOf } from 'data/nouns-builder/token'
+import { getBalanceOf } from '@/data/nouns-builder/token'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export const config = {

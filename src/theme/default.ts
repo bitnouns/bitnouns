@@ -1,4 +1,4 @@
-import { ThemeConfig } from 'types/ThemeConfig'
+import { ThemeConfig } from '@/types/ThemeConfig'
 import { darkColors, lightColors } from './colors'
 
 const logoHeight = '50px'

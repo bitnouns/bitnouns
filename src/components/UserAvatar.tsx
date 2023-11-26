@@ -1,5 +1,5 @@
+import { IPFS_GATEWAY } from '@/constants/urls'
 import getNormalizedURI from '@/utils/getNormalizedURI'
-import { IPFS_GATEWAY } from 'constants/urls'
 import Image from 'next/image'
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon'
 import { useEnsAvatar } from 'wagmi'

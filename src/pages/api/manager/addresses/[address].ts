@@ -1,4 +1,4 @@
-import { getAddresses } from 'data/nouns-builder/manager'
+import { getAddresses } from '@/data/nouns-builder/manager'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export const config = {

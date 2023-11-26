@@ -1,15 +1,15 @@
 import FaqElement from '@/components/FaqElement'
 import Footer from '@/components/Footer'
-import { getAddresses } from '@/services/nouns-builder/manager'
-import { AuctionInfo, getCurrentAuction } from 'data/nouns-builder/auction'
+import { AuctionInfo, getCurrentAuction } from '@/data/nouns-builder/auction'
 import {
   ContractInfo,
   TokenInfo,
   getContractInfo,
   getTokenInfo,
-} from 'data/nouns-builder/token'
+} from '@/data/nouns-builder/token'
+import { useIsMounted } from '@/hooks/useIsMounted'
+import { getAddresses } from '@/services/nouns-builder/manager'
 import { promises as fs } from 'fs'
-import { useIsMounted } from 'hooks/useIsMounted'
 import { GetStaticPropsResult, InferGetStaticPropsType } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'

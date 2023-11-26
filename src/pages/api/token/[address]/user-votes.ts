@@ -1,4 +1,4 @@
-import { getUserVotes } from 'data/nouns-builder/token'
+import { getUserVotes } from '@/data/nouns-builder/token'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export const config = {

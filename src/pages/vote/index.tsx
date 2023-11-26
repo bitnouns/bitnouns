@@ -1,13 +1,17 @@
 import Layout from '@/components/Layout'
 import ProposalStatus from '@/components/ProposalStatus'
+import { TOKEN_CONTRACT } from '@/constants/addresses'
+import {
+  useDAOAddresses,
+  useGetAllProposals,
+  useTreasuryBalance,
+} from '@/hooks'
 import { useCurrentThreshold } from '@/hooks/fetch/useCurrentThreshold'
 import { useUserVotes } from '@/hooks/fetch/useUserVotes'
 import { Proposal } from '@/services/nouns-builder/governor'
 import { formatTreasuryBalance } from '@/utils/formatTreasuryBalance'
 import { getProposalName } from '@/utils/getProposalName'
-import { TOKEN_CONTRACT } from 'constants/addresses'
 import { promises as fs } from 'fs'
-import { useDAOAddresses, useGetAllProposals, useTreasuryBalance } from 'hooks'
 import { GetStaticPropsResult, InferGetStaticPropsType } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'

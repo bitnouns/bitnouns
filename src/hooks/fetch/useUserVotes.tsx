@@ -1,4 +1,4 @@
-import { TOKEN_CONTRACT } from 'constants/addresses'
+import { TOKEN_CONTRACT } from '@/constants/addresses'
 import useSWR from 'swr'
 import { useAccount } from 'wagmi'
 

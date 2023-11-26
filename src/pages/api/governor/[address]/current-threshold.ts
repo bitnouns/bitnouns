@@ -1,4 +1,4 @@
-import { getProposalThreshold } from 'data/nouns-builder/governor'
+import { getProposalThreshold } from '@/data/nouns-builder/governor'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export const config = {

@@ -1,12 +1,12 @@
+import tailwindConfig from '@/../tailwind.config.js'
+import { chains, wagmiClient } from '@/configs/wallet'
 import { useInitTheme } from '@/hooks/useInitTheme'
+import '@/styles/globals.css'
 import { RainbowKitProvider, lightTheme } from '@rainbow-me/rainbowkit'
 import type { AppProps } from 'next/app'
 import { SWRConfig } from 'swr'
 import resolveConfig from 'tailwindcss/resolveConfig'
 import { WagmiConfig } from 'wagmi'
-import { chains, wagmiClient } from '../configs/wallet'
-import '../styles/globals.css'
-import tailwindConfig from '../tailwind.config.js'
 
 const fullConfig = resolveConfig(tailwindConfig)
 const bg = (fullConfig.theme?.backgroundColor as any).skin

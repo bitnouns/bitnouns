@@ -1,6 +1,6 @@
+import { MANAGER_CONTRACT } from '@/constants/addresses'
 import DefaultProvider from '@/utils/DefaultProvider'
 import { BuilderSDK } from '@buildersdk/sdk'
-import { MANAGER_CONTRACT } from 'constants/addresses'
 
 const { manager } = BuilderSDK.connect({ signerOrProvider: DefaultProvider })
 
