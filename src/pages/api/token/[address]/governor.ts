@@ -19,13 +19,18 @@ export default async function handler(req: NextRequest) {
     return new Response('Address not provided', { status: 400 })
   }
 
-  const contractInfo = await getContractInfo({ address })
+  try {
+    const contractInfo = await getContractInfo({ address })
 
-  const ONE_DAY_IN_SECONDS = 60 * 60 * 24
-  return new Response(JSON.stringify(contractInfo), {
-    status: 200,
-    headers: {
-      'Cache-Control': `s-maxage=60, stale-while-revalidate=${ONE_DAY_IN_SECONDS}`,
-    },
-  })
+    const ONE_DAY_IN_SECONDS = 60 * 60 * 24
+    return new Response(JSON.stringify(contractInfo), {
+      status: 200,
+      headers: {
+        'Cache-Control': `s-maxage=60, stale-while-revalidate=${ONE_DAY_IN_SECONDS}`,
+      },
+    })
+  } catch (e) {
+    console.error(e)
+    return new Response('Server error', { status: 500 })
+  }
 }

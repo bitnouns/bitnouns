@@ -19,9 +19,16 @@ export default async function handler(req: NextRequest) {
     return new Response('Address not provided', { status: 400 })
   }
 
-  const data = await getProposalThreshold({ address })
+  try {
+    const data = await getProposalThreshold({ address })
 
-  return new Response(data.toString(), {
-    status: 200,
-  })
+
+
+    return new Response(data.toString(), {
+      status: 200,
+    })
+  } catch (e) {
+    console.error(e)
+    return new Response('Server error', { status: 500 })
+  }
 }
