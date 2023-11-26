@@ -28,7 +28,7 @@ dependencies:
     version: 5.10.0(@mantine/core@5.10.0)(@mantine/hooks@5.10.0)(react-dom@18.2.0)(react@18.2.0)
   '@rainbow-me/rainbowkit':
     specifier: 0.8.0
-    version: 0.8.0(@types/react@18.2.37)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(wagmi@0.8.6)
+    version: 0.8.0(@types/react@18.2.37)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(wagmi@0.8.10)
   '@types/node':
     specifier: 20.9.2
     version: 20.9.2
@@ -111,8 +111,8 @@ dependencies:
     specifier: 1.1.0
     version: 1.1.0
   wagmi:
-    specifier: 0.8.6
-    version: 0.8.6(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
+    specifier: 0.8.10
+    version: 0.8.10(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
 
 devDependencies:
   '@cloudflare/next-on-pages':
@@ -222,7 +222,7 @@ packages:
     peerDependencies:
       ethers: ^5
     dependencies:
-      '@wagmi/core': 0.7.9(ethers@5.7.2)(react@18.2.0)(typescript@5.2.2)
+      '@wagmi/core': 0.7.9(@coinbase/wallet-sdk@3.7.1)(@walletconnect/ethereum-provider@1.8.0)(ethers@5.7.2)(react@18.2.0)(typescript@5.2.2)
       ethers: 5.7.2
     transitivePeerDependencies:
       - '@coinbase/wallet-sdk'
@@ -1593,7 +1593,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@rainbow-me/rainbowkit@0.8.0(@types/react@18.2.37)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(wagmi@0.8.6):
+  /@rainbow-me/rainbowkit@0.8.0(@types/react@18.2.37)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(wagmi@0.8.10):
     resolution: {integrity: sha512-4nqH5OGcNzYMe/fYSBU7qM8H102UzZ6PwURMA5z6puDct0BGpeBk0dofqaGATSDam+4RdEmKaqOz5r/1Lc3/0g==}
     engines: {node: '>=12.4'}
     peerDependencies:
@@ -1611,7 +1611,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-remove-scroll: 2.5.4(@types/react@18.2.37)(react@18.2.0)
-      wagmi: 0.8.6(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
+      wagmi: 0.8.10(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
     transitivePeerDependencies:
       - '@types/react'
     dev: false
@@ -2189,8 +2189,8 @@ packages:
       ts-morph: 12.0.0
     dev: true
 
-  /@wagmi/core@0.7.5(@coinbase/wallet-sdk@3.7.1)(@walletconnect/ethereum-provider@1.8.0)(ethers@5.7.2)(react@18.2.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-4pODpOzfZ2Hg4/N8CdIgFvRA4bKTQegGwt+m6xz0EeV0LOXPU9tGiXim9mJ2NUm1bDt6tFxE437NgqPiqQ1xUg==}
+  /@wagmi/core@0.7.9(@coinbase/wallet-sdk@3.7.1)(@walletconnect/ethereum-provider@1.8.0)(ethers@5.7.2)(react@18.2.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-97KCELUP5Q1AagRyE7SmpLh4/v3xdcy/XMbybLvvtQbgmi3y5oEzy4h/wJMY1hEZlmicqyWZAHHm6xIr1tP5HA==}
     peerDependencies:
       '@coinbase/wallet-sdk': '>=3.3.0'
       '@walletconnect/ethereum-provider': '>=1.7.5'
@@ -2203,28 +2203,6 @@ packages:
     dependencies:
       '@coinbase/wallet-sdk': 3.7.1
       '@walletconnect/ethereum-provider': 1.8.0
-      abitype: 0.1.8(typescript@5.2.2)
-      ethers: 5.7.2
-      eventemitter3: 4.0.7
-      zustand: 4.3.8(react@18.2.0)
-    transitivePeerDependencies:
-      - immer
-      - react
-      - typescript
-    dev: false
-
-  /@wagmi/core@0.7.9(ethers@5.7.2)(react@18.2.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-97KCELUP5Q1AagRyE7SmpLh4/v3xdcy/XMbybLvvtQbgmi3y5oEzy4h/wJMY1hEZlmicqyWZAHHm6xIr1tP5HA==}
-    peerDependencies:
-      '@coinbase/wallet-sdk': '>=3.3.0'
-      '@walletconnect/ethereum-provider': '>=1.7.5'
-      ethers: '>=5.5.1'
-    peerDependenciesMeta:
-      '@coinbase/wallet-sdk':
-        optional: true
-      '@walletconnect/ethereum-provider':
-        optional: true
-    dependencies:
       abitype: 0.1.8(typescript@5.2.2)
       ethers: 5.7.2
       eventemitter3: 4.0.7
@@ -3555,6 +3533,7 @@ packages:
 
   /eip1193-provider@1.0.1:
     resolution: {integrity: sha512-kSuqwQ26d7CzuS/t3yRXo2Su2cVH0QfvyKbr2H7Be7O5YDyIq4hQGCNTo5wRdP07bt+E2R/8nPCzey4ojBHf7g==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
     dependencies:
       '@json-rpc-tools/provider': 1.7.6
     transitivePeerDependencies:
@@ -8992,8 +8971,8 @@ packages:
       vfile-message: 3.1.4
     dev: false
 
-  /wagmi@0.8.6(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-60pQtwrT7qrXRr68rAJLdPlk9PhDuHvaT1A8cUdEU6bkUamk9F8DHeGQ52NJkBubLLaaUXmPMZw8vWoVheGxWA==}
+  /wagmi@0.8.10(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-svS/Debs6maJX3TlPDXNo+UDfZn8VCHzN2xcMMjPjcu2Z9k2iwFwC0TMLxM1itluzrTcw9n8F8E+f6gb+Aw+EQ==}
     peerDependencies:
       ethers: '>=5.5.1'
       react: '>=17.0.0'
@@ -9002,7 +8981,7 @@ packages:
       '@tanstack/query-sync-storage-persister': 4.29.11
       '@tanstack/react-query': 4.29.12(react-dom@18.2.0)(react@18.2.0)
       '@tanstack/react-query-persist-client': 4.29.12(@tanstack/react-query@4.29.12)
-      '@wagmi/core': 0.7.5(@coinbase/wallet-sdk@3.7.1)(@walletconnect/ethereum-provider@1.8.0)(ethers@5.7.2)(react@18.2.0)(typescript@5.2.2)
+      '@wagmi/core': 0.7.9(@coinbase/wallet-sdk@3.7.1)(@walletconnect/ethereum-provider@1.8.0)(ethers@5.7.2)(react@18.2.0)(typescript@5.2.2)
       '@walletconnect/ethereum-provider': 1.8.0
       abitype: 0.1.8(typescript@5.2.2)
       ethers: 5.7.2
