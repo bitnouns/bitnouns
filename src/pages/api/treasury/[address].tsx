@@ -10,9 +10,10 @@ export const config = {
 }
 
 const handler = async (req: NextRequest) => {
+  console.log(req.url)
   const { searchParams } = new URL(req.url)
-  const address = searchParams.get('address')
-  const treasuryBalance = await DefaultProvider.getBalance(address as string)
+  const address = searchParams.get('address') as `0x${string}`
+  const treasuryBalance = await DefaultProvider.getBalance(address)
 
   const ONE_DAY_IN_SECONDS = 60 * 60 * 24
   return new Response(treasuryBalance.toString(), {

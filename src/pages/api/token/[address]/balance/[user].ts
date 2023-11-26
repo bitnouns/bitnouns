@@ -10,13 +10,11 @@ export const config = {
 }
 
 const handler = async (req: NextRequest) => {
+  console.log(req.url)
   const { searchParams } = new URL(req.url)
-  const address = searchParams.get('address')
-  const user = searchParams.get('user')
-  const balance = await getBalanceOf({
-    address: address as '0x${string}',
-    user: user as '0x${string}',
-  })
+  const address = searchParams.get('address') as `0x${string}`
+  const user = searchParams.get('user') as `0x${string}`
+  const balance = await getBalanceOf({ address, user })
 
   const ONE_DAY_IN_SECONDS = 60 * 60 * 24
   return new Response(balance.toString(), {

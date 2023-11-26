@@ -10,11 +10,10 @@ export const config = {
 }
 
 const handler = async (req: NextRequest) => {
+  console.log(req.url)
   const { searchParams } = new URL(req.url)
-  const address = searchParams.get('address')
-  const data = await getProposalThreshold({
-    address: address as string,
-  })
+  const address = searchParams.get('address') as string
+  const data = await getProposalThreshold({ address })
 
   return new Response(data.toString(), {
     status: 200,

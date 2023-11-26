@@ -10,16 +10,15 @@ export const config = {
 }
 
 const handler = async (req: NextRequest) => {
+  console.log(req.url)
   const { searchParams } = new URL(req.url)
-  const address = searchParams.get('address')
-  const user = searchParams.get('user')
+  const address = searchParams.get('address') as `0x${string}`
+  const user = searchParams.get('user') as `0x${string}`
   const timestamp = searchParams.get('timestamp')
+    ? (searchParams.get('timestamp') as string)
+    : undefined
 
-  const data = await getUserVotes({
-    address: address as `0x${string}`,
-    user: user as `0x${string}`,
-    timestamp: timestamp ? (timestamp as string) : undefined,
-  })
+  const data = await getUserVotes({ address, user, timestamp })
 
   return new Response(data.toString(), {
     status: 200,
