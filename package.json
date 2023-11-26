@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -12,7 +13,7 @@
     "pages:deploy": "pnpm run pages:build && wrangler pages deploy .vercel/output/static",
     "pages:watch": "pnpm @cloudflare/next-on-pages@1 --watch",
     "pages:dev": "pnpm wrangler pages dev .vercel/output/static --compatibility-flag=nodejs_compat",
-    "prepare": "husky install"
+    "turbo:build": "pnpm turbo build"
   },
   "dependencies": {
     "@buildersdk/sdk": "0.1.0",
