@@ -14,9 +14,11 @@ import {
   getUserVotes,
 } from '@/data/nouns-builder/token'
 import DefaultProvider from '@/utils/DefaultProvider'
-import { handle } from '@hono/node-server/vercel'
 import { Hono } from 'hono'
+import { handle } from 'hono/vercel'
 import { theme } from '../../../theme.config'
+
+export const runtime = 'edge'
 
 const app = new Hono().basePath('/api')
 
