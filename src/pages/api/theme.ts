@@ -2,7 +2,7 @@ import { theme } from '@/../theme.config'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export const config = {
-  runtime: 'edge',
+  runtime: 'nodejs',
   unstable_allowDynamic: ['**/.pnpm/**/node_modules/lodash*/*.js'],
 }
 

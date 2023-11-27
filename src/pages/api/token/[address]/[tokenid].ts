@@ -2,7 +2,7 @@ import { TokenInfo, getTokenInfo } from '@/data/nouns-builder/token'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export const config = {
-  runtime: 'edge',
+  runtime: 'nodejs',
   unstable_allowDynamic: [
     '**/.pnpm/**/node_modules/lodash*/*.js',
     '**/.pnpm/**/node_modules/@walletconnect*/**/*.js',

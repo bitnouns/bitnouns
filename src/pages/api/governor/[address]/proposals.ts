@@ -2,7 +2,7 @@ import { getProposals } from '@/services/nouns-builder/governor'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export const config = {
-  runtime: 'edge',
+  runtime: 'nodejs',
   unstable_allowDynamic: [
     '**/.pnpm/**/node_modules/lodash*/*.js',
     '**/.pnpm/**/node_modules/@walletconnect*/**/*.js',
