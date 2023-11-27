@@ -1,5 +1,5 @@
 import { theme } from '@/../theme.config'
-import { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 export const config = {
   runtime: 'edge',
@@ -8,5 +8,5 @@ export const config = {
 
 export default async function handler(req: NextRequest) {
   console.log(req.url)
-  return Response.json(theme)
+  return NextResponse.json(theme)
 }

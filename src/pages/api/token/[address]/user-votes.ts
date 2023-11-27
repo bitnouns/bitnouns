@@ -1,5 +1,5 @@
 import { getUserVotes } from '@/data/nouns-builder/token'
-import { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 export const config = {
   runtime: 'edge',
@@ -18,19 +18,17 @@ export default async function handler(req: NextRequest) {
     ? (searchParams.get('timestamp') as string)
     : undefined
 
-  // Check if address is null or undefined
-  if (!address) {
-    return new Response('Address not provided', { status: 400 })
-  }
-
   try {
     const data = await getUserVotes({ address, user, timestamp })
 
-    return new Response(data.toString(), {
+    return new NextResponse(data.toString(), {
       status: 200,
     })
   } catch (e) {
     console.error(e)
-    return new Response('Server error', { status: 500 })
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 },
+    )
   }
 }
