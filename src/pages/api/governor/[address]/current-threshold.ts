@@ -3,6 +3,10 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 export const config = {
   runtime: 'edge',
+  unstable_allowDynamic: [
+    '**/.pnpm/**/node_modules/lodash*/*.js',
+    '**/.pnpm/**/node_modules/@walletconnect*/**/*.js',
+  ],
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -10,8 +14,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const data = await getProposalThreshold({
     address: address as string,
   })
-
-  console.log('data', data, address)
 
   res.status(200).send(data.toNumber())
 }

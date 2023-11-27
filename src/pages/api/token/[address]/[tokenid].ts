@@ -3,6 +3,10 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 export const config = {
   runtime: 'edge',
+  unstable_allowDynamic: [
+    '**/.pnpm/**/node_modules/lodash*/*.js',
+    '**/.pnpm/**/node_modules/@walletconnect*/**/*.js',
+  ],
 }
 
 type ResponseData = TokenInfo
