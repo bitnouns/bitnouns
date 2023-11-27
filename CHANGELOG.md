@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.4] - 2023-11-27
+
+### Refactor
+
+- Switch from `sanitize-html` to `react-markdown` for rendering
+- Update network configuration for multi-chain support
+- Remove unnecessary console log statements
+- Adjust auction address parameter type to `Address`
+- Allow dynamic imports for specified node modules
+- Enforce production mode in mdx serialize function
+- Adapt `mdxOptions` based on `NODE_ENV`
+
 ## [1.0.0-alpha.3] - 2023-11-27
 
 ### Bug Fixes

@@ -30,7 +30,9 @@ export const getStaticProps = async (): Promise<
     templateDirectory + '/vote/description.md',
     'utf8',
   )
-  const descMD = await serialize(descFile)
+  const descMD = await serialize(descFile, {
+    mdxOptions: { development: process.env.NODE_ENV === 'development' },
+  })
 
   return {
     props: {
@@ -56,9 +58,6 @@ export default function Vote({
   const { data: currentThreshold } = useCurrentThreshold({
     governorContract: addresses?.governor,
   })
-
-  console.log('userVotes', userVotes)
-  console.log('currentThreshold', currentThreshold)
 
   const getProposalNumber = (i: number) => {
     if (!proposals) return 0

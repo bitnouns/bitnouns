@@ -16,7 +16,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Fragment, useState } from 'react'
-import sanitizeHtml from 'sanitize-html'
+import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+import rehypeSanitize from 'rehype-sanitize'
+import remarkGfm from 'remark-gfm'
 import useSWR from 'swr'
 import { useEnsName } from 'wagmi'
 
@@ -177,14 +180,13 @@ export default function ProposalComponent() {
           Description
         </div>
 
-        <div
+        <ReactMarkdown
           className="prose prose-skin mt-4 max-w-[90vw] break-words prose-img:w-auto sm:max-w-[1000px]"
-          dangerouslySetInnerHTML={{
-            __html: sanitizeHtml(getProposalDescription(proposal.description), {
-              allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
-            }),
-          }}
-        />
+          rehypePlugins={[rehypeRaw, rehypeSanitize]}
+          remarkPlugins={[remarkGfm]}
+        >
+          {getProposalDescription(proposal.description)}
+        </ReactMarkdown>
       </div>
 
       <div className="mt-8 font-heading text-2xl font-bold text-skin-base">

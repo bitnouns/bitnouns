@@ -5,6 +5,7 @@ import { BigNumber, utils } from 'ethers'
 import Image from 'next/image'
 import { Fragment, useState } from 'react'
 import {
+  Address,
   useAccount,
   useContractWrite,
   usePrepareContractWrite,
@@ -26,7 +27,7 @@ export const PlaceBid = ({
   const [theme] = useTheme()
 
   const { config, error } = usePrepareContractWrite({
-    address: auction,
+    address: auction as Address,
     abi: AuctionABI,
     functionName: 'createBid',
     args: [BigNumber.from(tokenId || 1)],
