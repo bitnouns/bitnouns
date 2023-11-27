@@ -55,7 +55,7 @@
   "devDependencies": {
     "@cloudflare/next-on-pages": "1.8.0",
     "@tailwindcss/typography": "0.5.8",
-    "@types/lodash.merge": "4.6.7",
+    "@types/lodash.merge": "4.6.9",
     "@types/sanitize-html": "2.9.5",
     "cssnano": "6.0.1",
     "eslint": "8.54.0",
