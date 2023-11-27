@@ -116,8 +116,8 @@ devDependencies:
     specifier: 0.5.8
     version: 0.5.8(tailwindcss@3.3.5)
   '@types/lodash.merge':
-    specifier: 4.6.7
-    version: 4.6.7
+    specifier: 4.6.9
+    version: 4.6.9
   '@types/sanitize-html':
     specifier: 2.9.5
     version: 2.9.5
@@ -1844,8 +1844,8 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: false
 
-  /@types/lodash.merge@4.6.7:
-    resolution: {integrity: sha512-OwxUJ9E50gw3LnAefSHJPHaBLGEKmQBQ7CZe/xflHkyy/wH2zVyEIAKReHvVrrn7zKdF58p16We9kMfh7v0RRQ==}
+  /@types/lodash.merge@4.6.9:
+    resolution: {integrity: sha512-23sHDPmzd59kUgWyKGiOMO2Qb9YtqRO/x4IhkgNUiPQ1+5MUVqi6bCZeq9nBJ17msjIMbEIO5u+XW4Kz6aGUhQ==}
     dependencies:
       '@types/lodash': 4.14.192
     dev: true
