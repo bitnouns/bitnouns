@@ -5,6 +5,7 @@ export const config = {
   runtime: 'edge',
   unstable_allowDynamic: [
     '**/.pnpm/**/node_modules/lodash*/*.js',
+    '**/.pnpm/**/node_modules/scrypt-js*/*.js',
     '**/.pnpm/**/node_modules/@walletconnect*/**/*.js',
   ],
 }
@@ -16,8 +17,6 @@ export default async function handler(req: NextRequest) {
 
   try {
     const data = await getProposalThreshold({ address })
-
-
 
     return new NextResponse(data.toString(), {
       status: 200,
