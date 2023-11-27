@@ -56,7 +56,7 @@ export const getStaticProps = async (): Promise<
     'utf8',
   )
   const descMD = await serialize(descFile, {
-    mdxOptions: { development: false },
+    mdxOptions: { development: process.env.NODE_ENV === 'development' },
   })
 
   let faqSources: MarkdownSource[] = []
@@ -75,7 +75,7 @@ export const getStaticProps = async (): Promise<
           )
 
           return serialize(faqFile, {
-            mdxOptions: { development: false },
+            mdxOptions: { development: process.env.NODE_ENV === 'development' },
             parseFrontmatter: true,
           })
         }),

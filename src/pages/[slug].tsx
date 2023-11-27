@@ -37,7 +37,7 @@ export const getStaticProps = async (
   const templateDirectory = path.join(process.cwd(), 'templates')
   const source = await fs.readFile(`${templateDirectory}/${slug}.md`, 'utf8')
   const mdxSource = await serialize(source, {
-    mdxOptions: { development: false },
+    mdxOptions: { development: process.env.NODE_ENV === 'development' },
     parseFrontmatter: true,
   })
 
