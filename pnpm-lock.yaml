@@ -131,8 +131,8 @@ devDependencies:
     specifier: 9.0.0
     version: 9.0.0(eslint@8.54.0)
   eslint-plugin-next-on-pages:
-    specifier: 1.7.4
-    version: 1.7.4(eslint@8.54.0)
+    specifier: 1.8.0
+    version: 1.8.0(eslint@8.54.0)
   eslint-plugin-prettier:
     specifier: 5.0.1
     version: 5.0.1(eslint-config-prettier@9.0.0)(eslint@8.54.0)(prettier@3.1.0)
@@ -4488,8 +4488,8 @@ packages:
       semver: 6.3.1
     dev: false
 
-  /eslint-plugin-next-on-pages@1.7.4(eslint@8.54.0):
-    resolution: {integrity: sha512-mF7aALT4c/tdA5RTzVkB+isvKXqz17wR5dfPqQNrqLCqitVFmu5mURmOHnebe0VerUOqBeL4RVNiacUUmm90Sw==}
+  /eslint-plugin-next-on-pages@1.8.0(eslint@8.54.0):
+    resolution: {integrity: sha512-LqMsSWJw3lvYNZNmXITqsNRfTmF5DPJubVS1N7WqsfJrRT288FYRMGEImqXJL76Fh1/ufkwbzjEZU2JPe0zhfw==}
     peerDependencies:
       eslint: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
