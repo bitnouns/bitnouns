@@ -1,6 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 
 export default function ModalWrapper({
   children,

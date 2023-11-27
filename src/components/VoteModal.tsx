@@ -1,4 +1,5 @@
 import { TOKEN_CONTRACT } from '@/constants/addresses'
+import { useDAOAddresses } from '@/hooks'
 import { useUserVotes } from '@/hooks/fetch/useUserVotes'
 import { Proposal } from '@/services/nouns-builder/governor'
 import { GovernorABI } from '@buildersdk/sdk'
@@ -11,7 +12,6 @@ import {
   usePrepareContractWrite,
   useWaitForTransaction,
 } from 'wagmi'
-import { useDAOAddresses } from '../hooks'
 
 export default function VoteModal({
   proposal,

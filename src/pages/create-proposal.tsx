@@ -178,7 +178,7 @@ const SubmitButton = () => {
     enabled: debouncedArgs && !values.find((x) => x.isZero()),
   })
   const { data, write } = useContractWrite(config)
-  const { isLoading, isSuccess, status } = useWaitForTransaction({
+  const { isLoading, isSuccess } = useWaitForTransaction({
     hash: data?.hash,
   })
 
