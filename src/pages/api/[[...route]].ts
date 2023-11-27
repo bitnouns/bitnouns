@@ -15,12 +15,35 @@ import {
 } from '@/data/nouns-builder/token'
 import DefaultProvider from '@/utils/DefaultProvider'
 import { Hono } from 'hono'
+import { logger } from 'hono/logger'
 import { handle } from 'hono/vercel'
 import { theme } from '../../../theme.config'
 
-export const runtime = 'edge'
+export const config = {
+  runtime: 'edge',
+  unstable_allowDynamic: [
+    '**/.pnpm/**/node_modules/@walletconnect/**',
+    '**/.pnpm/**/node_modules/detect-browser/**',
+    '**/.pnpm/**/node_modules/js-sha3/**',
+    '**/.pnpm/**/node_modules/lodash*/*.js',
+    '**/.pnpm/**/node_modules/readable-stream/**',
+    '**/.pnpm/**/node_modules/scheduler/**',
+    '**/.pnpm/**/node_modules/scrypt-js/**',
+  ],
+}
 
 const app = new Hono().basePath('/api')
+
+export const customLogger = (message: string, ...rest: string[]) => {
+  console.log(message, ...rest)
+}
+
+app.use('*', logger(customLogger))
+
+app.onError((err, c) => {
+  console.error(`${err}`)
+  return c.text('Custom Error Message', 500)
+})
 
 app.get('/auction/:address', async (c) => {
   const address = c.req.param('address')

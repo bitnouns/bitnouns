@@ -69,8 +69,8 @@ dependencies:
     specifier: 6.1.0
     version: 6.1.0(graphql@16.6.0)
   hono:
-    specifier: 3.6.0
-    version: 3.6.0
+    specifier: 3.10.2
+    version: 3.10.2
   jotai:
     specifier: 2.6.0
     version: 2.6.0(@types/react@18.2.38)(react@18.2.0)
@@ -6038,8 +6038,8 @@ packages:
       react-is: 16.13.1
     dev: false
 
-  /hono@3.6.0:
-    resolution: {integrity: sha512-snkW8naO1WCrQvpAGE/du30Ek0h71gSM3g4RzzdPIB2LQnl12BEwZYH3s2Kssd6kXGORqHmpoyMBMLWtc9nzKQ==}
+  /hono@3.10.2:
+    resolution: {integrity: sha512-QwJLjWs3e+nZ3b5nQrrdJpYCJqiTK744jeYhX7yhZdxwcQ3KIohBfzI2dA8gSF6HEZkmFUdiKL1BelJ8utIm4w==}
     engines: {node: '>=16.0.0'}
     dev: false
 
