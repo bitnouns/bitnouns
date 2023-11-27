@@ -22,9 +22,13 @@ import { theme } from '../../../theme.config'
 export const config = {
   runtime: 'edge',
   unstable_allowDynamic: [
+    '**/.pnpm/**/node_modules/@walletconnect/**',
+    '**/.pnpm/**/node_modules/detect-browser/**',
+    '**/.pnpm/**/node_modules/js-sha3/**',
     '**/.pnpm/**/node_modules/lodash*/*.js',
-    '**/.pnpm/**/node_modules/scrypt-js*/*.js',
-    '**/.pnpm/**/node_modules/@walletconnect*/**/*.js',
+    '**/.pnpm/**/node_modules/readable-stream/**',
+    '**/.pnpm/**/node_modules/scheduler/**',
+    '**/.pnpm/**/node_modules/scrypt-js/**',
   ],
 }
 
