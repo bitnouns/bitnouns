@@ -1,3 +1,4 @@
+import { theme } from '@/../theme.config'
 import {
   getCurrentAuction,
   getPreviousAuctions,
@@ -14,11 +15,15 @@ import {
   getUserVotes,
 } from '@/data/nouns-builder/token'
 import DefaultProvider from '@/utils/DefaultProvider'
-import { handle } from '@hono/node-server/vercel'
 import { Hono } from 'hono'
-import { theme } from '../../../theme.config'
+import { handle } from 'hono/cloudflare-pages'
+import { cors } from 'hono/cors'
 
-const app = new Hono().basePath('/api')
+type Bindings = {}
+
+const app = new Hono<{ Bindings: Bindings }>().basePath('/api')
+
+app.use('/*', cors())
 
 app.get('/auction/:address', async (c) => {
   const address = c.req.param('address')
@@ -179,4 +184,4 @@ app.get('/theme', async (c) => {
   return c.json(theme)
 })
 
-export default handle(app)
+export const onRequest = handle(app)
