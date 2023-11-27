@@ -35,6 +35,12 @@ export const customLogger = (message: string, ...rest: string[]) => {
 }
 
 app.use('*', logger(customLogger))
+
+app.onError((err, c) => {
+  console.error(`${err}`)
+  return c.text('Custom Error Message', 500)
+})
+
 app.get('/auction/:address', async (c) => {
   const address = c.req.param('address')
 
