@@ -18,7 +18,14 @@ import { Hono } from 'hono'
 import { handle } from 'hono/vercel'
 import { theme } from '../../../theme.config'
 
-export const runtime = 'edge'
+export const config = {
+  runtime: 'edge',
+  unstable_allowDynamic: [
+    '**/.pnpm/**/node_modules/lodash*/*.js',
+    '**/.pnpm/**/node_modules/scrypt-js*/*.js',
+    '**/.pnpm/**/node_modules/@walletconnect*/**/*.js',
+  ],
+}
 
 const app = new Hono().basePath('/api')
 
