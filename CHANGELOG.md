@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.6] - 2023-11-27
+
+### Refactor
+
+- Update API runtime property in config object
+- Implement custom logging in API routes
+- Implement error handling for API routes
+- Allow dynamic routing for additional modules
+
 ## [1.0.0-alpha.5] - 2023-11-27
 
 ### Refactor
