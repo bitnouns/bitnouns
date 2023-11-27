@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.3] - 2023-11-27
+
+### Bug Fixes
+
+- Ensure proper type checking in title assignment
+
+### Refactor
+
+- Add explicit `React` imports
+- Update import path on `VoteModal`
+- Remove unused `status` variable from create-proposal component
+
+### Miscellaneous Tasks
+
+- Add dependencies to `turbo.json` and new command to `package.json`
+
 ## [1.0.0-alpha.2] - 2023-11-26
 
 ### Refactor
