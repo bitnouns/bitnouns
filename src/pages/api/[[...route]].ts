@@ -15,6 +15,7 @@ import {
 } from '@/data/nouns-builder/token'
 import DefaultProvider from '@/utils/DefaultProvider'
 import { Hono } from 'hono'
+import { logger } from 'hono/logger'
 import { handle } from 'hono/vercel'
 import { theme } from '../../../theme.config'
 
@@ -29,6 +30,11 @@ export const config = {
 
 const app = new Hono().basePath('/api')
 
+export const customLogger = (message: string, ...rest: string[]) => {
+  console.log(message, ...rest)
+}
+
+app.use('*', logger(customLogger))
 app.get('/auction/:address', async (c) => {
   const address = c.req.param('address')
 
