@@ -5,19 +5,22 @@ import { configureChains, createClient, goerli, mainnet } from 'wagmi'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 import { publicProvider } from 'wagmi/providers/public'
 
+const network = typeof process !== 'undefined' && process.env.NEXT_PUBLIC_TOKEN_NETWORK || '1';
+const alchemyKey = typeof process !== 'undefined' && process.env.NEXT_PUBLIC_ALCHEMY_KEY || '';
+
 const selectedChain = {
   '1': mainnet,
   '5': goerli,
   '999': zoraTestnet,
   '7777777': zora,
-}[process.env.NEXT_PUBLIC_TOKEN_NETWORK ?? '1']!
+}[network]!
 
 export const RPC_URL = {
-  '1': `https://eth-mainnet.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_ALCHEMY_KEY}`,
-  '5': `https://eth-goerli.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_ALCHEMY_KEY}`,
+  '1': `https://eth-mainnet.g.alchemy.com/v2/${alchemyKey}`,
+  '5': `https://eth-goerli.g.alchemy.com/v2/${alchemyKey}`,
   '999': 'https://testnet.rpc.zora.energy',
   '7777777': 'https://rpc.zora.energy',
-}[process.env.NEXT_PUBLIC_TOKEN_NETWORK ?? '1']!
+}[network]!
 
 export type ChainId = '1' | '5' | '999' | '7777777'
 
