@@ -1,6 +1,7 @@
 import { AuctionABI } from '@buildersdk/sdk'
 import Image from 'next/image'
 import {
+  Address,
   useContractWrite,
   usePrepareContractWrite,
   useWaitForTransaction,
@@ -8,7 +9,7 @@ import {
 
 export const SettleAuction = ({ auction }: { auction?: string }) => {
   const { config } = usePrepareContractWrite({
-    address: auction,
+    address: auction as Address,
     abi: AuctionABI,
     functionName: 'settleCurrentAndCreateNewAuction',
     enabled: !!auction,
