@@ -2,7 +2,7 @@ import { getAddresses } from '@/data/nouns-builder/manager'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export const config = {
-  runtime: 'nodejs',
+  runtime: 'edge',
   unstable_allowDynamic: [
     '**/.pnpm/**/node_modules/lodash*/*.js',
     '**/.pnpm/**/node_modules/@walletconnect*/**/*.js',
