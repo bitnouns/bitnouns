@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.7] - 2023-11-28
+
+### Refactor
+
+- Rename IPFS gateway constant and update image domains
+
 ## [1.0.0-alpha.6] - 2023-11-27
 
 ### Refactor
